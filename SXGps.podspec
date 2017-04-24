@@ -1,9 +1,9 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "SXGpsHelper"
-  s.version      = "0.0.1"
-  s.summary      = "you can use the helper easy coding"
+  s.name         = "SXGps"
+  s.version      = "0.0.3"
+  s.summary      = "Easy use GPS get address"
 
   s.homepage     = "https://github.com/poos/SXGpsHelper"
 
@@ -15,14 +15,13 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/poos/SXGpsHelper.git", :tag => s.version.to_s }
 
-  s.source_files  = "SXGps.h"
+  s.source_files  = "SXGps/SXGps.h"
 
   s.requires_arc = true
 
-
-s.subspec 'MainClass' do |ss|
-ss.source_files = 'Example*.{h,m}'
-ss.public_header_files = "*.h"
+s.subspec 'SXGps' do |ss|
+ss.source_files = 'SXGps/**/*.{h,m}'
+ss.public_header_files = "SXGps/**/*.h"
 end
 
 end
