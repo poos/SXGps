@@ -100,7 +100,7 @@
 const double a = 6378245.0;
 const double ee = 0.00669342162296594323;
 
-+ (CLLocation *)transformToMars:(CLLocation *)location {
++ (CLLocation *)transformToMarsGlobalLocation:(CLLocation *)location {
     //是否在中国大陆之外
     if ([[self class] outOfChina:location]) {
         return location;
@@ -174,8 +174,7 @@ const double ee = 0.00669342162296594323;
     [self startLocation];
     __weak SXGps *weakself = self;
     self.locationBlock = ^(CGFloat longitude, CGFloat latitude) {
-        CLLocation * location = [SXGps transformToMars:[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
-        
+        CLLocation * location = [SXGps transformToMarsGlobalLocation:[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
         [weakself searchLocation:location completeionBlock:^(NSArray *locationArr, NSError *error) {
             if (addressBlock) {
                 addressBlock([locationArr lastObject]);

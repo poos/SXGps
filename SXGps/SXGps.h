@@ -38,18 +38,11 @@ typedef void (^LocationCompletionBlock)(CGFloat longitude, CGFloat latitude);
 //调用BLOCK
 @property (nonatomic, copy)   LocationCompletionBlock locationBlock;
 
-
 //------------------------------火星偏移
 //国内偏移,国外不变返回原值
-+ (CLLocation *)transformToMars:(CLLocation *)location;
-
-//根据国内经纬返回全球经纬度
-+ (double)transformLatWithX:(double)x y:(double)y;
-+ (double)transformLonWithX:(double)x y:(double)y;
-
++ (CLLocation *)transformToMarsGlobalLocation:(CLLocation *)location;
 
 //-------------------------------坐标转换地址
-
 typedef void (^AddressCompletionBlock)(NSArray *locationArr,NSError *error);
 @property (nonatomic, strong) CLGeocoder *gecoder;
 @property (nonatomic, copy) AddressCompletionBlock locationAddressBlock;
